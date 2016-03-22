@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 18:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../../heartbeats.rst:5
+msgid "Sending and receiving heartbeat messages"
+msgstr ""
+
+#: ../../heartbeats.rst:7
+msgid ""
+"The Websocket protocol implements so called PING/PONG messages to keep "
+"Websockets alive, even behind proxies, firewalls and load-balancers. The "
+"server sends a PING message to the client through the Websocket, which "
+"then replies with PONG. If the client does not reply, the server closes "
+"the connection."
+msgstr ""
+
+#: ../../heartbeats.rst:13
+msgid "The client part"
+msgstr ""
+
+#: ../../heartbeats.rst:14
+msgid ""
+"Unfortunately, the Websocket protocol does not provide a similar method "
+"for the client, to find out if it is still connected to the server. This "
+"can happen, if the connection simply disappears without further "
+"notification. In order to have the client recognize this, some Javascript"
+" code has to be added to the client code responsible for the Websocket:"
+msgstr ""
+
+#: ../../heartbeats.rst:47
+msgid ""
+"The heartbeat message, here ``--heartbeat--`` can be any magic string "
+"which does not interfere with your remaining logic. The best way to "
+"achieve this, is to check for that magic string inside the receive "
+"function, just before further processing the message:"
+msgstr ""
+
+#: ../../heartbeats.rst:65
+msgid "The server part"
+msgstr ""
+
+#: ../../heartbeats.rst:66
+msgid ""
+"The main loop of the Websocket server is idle for a maximum of 4 seconds,"
+" even if there is nothing to do. After that time interval has elapsed, "
+"this loop optionally sends a magic string to the client. This can be "
+"configured using the special setting:"
+msgstr ""
+
+#: ../../heartbeats.rst:74
+msgid ""
+"The purpose of this setting is twofold. During processing, the server "
+"ignores incoming messages containing this magic string. Additionally the "
+"Websocket server sends a message with that magic string to the client, "
+"about every four seconds. The above client code awaits these messages, at"
+" least every five seconds, and if too many were not received, it closes "
+"the connection and tries to reestablish it."
+msgstr ""
+
+#: ../../heartbeats.rst:80
+msgid ""
+"By default the setting ``WS4REDIS_HEARTBEAT`` is ``None``, which means "
+"that heartbeat messages are neither expected nor sent."
+msgstr ""
+

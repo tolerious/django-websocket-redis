@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 18:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../../api.rst:5
+msgid "Application Programming Interface"
+msgstr ""
+
+#: ../../api.rst:7
+msgid ""
+"This document describes how to interact with **Websockets for Redis** "
+"from the Django loop and how to adopt the Websocket loop for other "
+"purposes."
+msgstr ""
+
+#: ../../api.rst:11
+msgid "Use ``RedisPublisher`` from inside Django views"
+msgstr ""
+
+#: ../../api.rst:12
+msgid ""
+"For obvious architectural reasons, the code handling the websocket loop "
+"can not be accessed directly from within Django. Therefore, all "
+"communication from Django to the websocket loop, must be passed over to "
+"the Redis message queue and vice versa. To facility this, **ws4redis** "
+"offers a class named ``RedisPublisher``. An instance of this class shall "
+"be used from inside Django views to push messages via a websocket to the "
+"client, or to fetch persisted messages sent through the websocket."
+msgstr ""
+
+#: ../../api.rst:18
+msgid "Example view:"
+msgstr ""
+
+#: ../../api.rst:37
+msgid "For further options, refer to the reference:"
+msgstr ""
+
+#: of ws4redis.publisher.RedisPublisher.fetch_message:1
+msgid ""
+"Fetch the first message available for the given ``facility`` and "
+"``audience``, if it has been persisted in the Redis datastore. The "
+"current HTTP ``request`` is used to determine to whom the message "
+"belongs. A unique string is used to identify the bucket's ``facility``. "
+"Determines the ``audience`` to check for the message. Must be one of "
+"``broadcast``, ``group``, ``user``, ``session`` or ``any``. The default "
+"is ``any``, which means to check for all possible audiences."
+msgstr ""
+
+#: of ws4redis.redis_store.RedisStore.publish_message:1
+msgid ""
+"Publish a ``message`` on the subscribed channel on the Redis datastore. "
+"``expire`` sets the time in seconds, on how long the message shall "
+"additionally of being published, also be persisted in the Redis "
+"datastore. If unset, it defaults to the configuration settings "
+"``WS4REDIS_EXPIRE``."
+msgstr ""
+
+#: ../../api.rst:46
+msgid "Replace ``RedisSubscriber`` for the Websocket loop"
+msgstr ""
+
+#: ../../api.rst:47
+msgid ""
+"Sometimes the predefined channels for subscribing and publishing messages"
+" might not be enough. If there is a need to add additional channels to "
+"the message queue, it is possible to replace the implemented class "
+"``ws4redis.store.RedisSubscriber`` by setting the configuration directive"
+" ``WS4REDIS_SUBSCRIBER`` to a class of your choice."
+msgstr ""
+
+#: ../../api.rst:52
+msgid ""
+"Use the class ``RedisSubscriber`` as a starting point and overload the "
+"required methods with your own implementation."
+msgstr ""
+
+#: of ws4redis.subscriber.RedisSubscriber:1
+msgid ""
+"Subscriber class, used by the websocket code to listen for subscribed "
+"channels"
+msgstr ""
+
+#: of ws4redis.subscriber.RedisSubscriber.get_file_descriptor:1
+msgid ""
+"Returns the file descriptor used for passing to the select call when "
+"listening on the message queue."
+msgstr ""
+
+#: of ws4redis.subscriber.RedisSubscriber.parse_response:1
+msgid ""
+"Parse a message response sent by the Redis datastore on a subscribed "
+"channel."
+msgstr ""
+
+#: of ws4redis.subscriber.RedisSubscriber.release:1
+msgid ""
+"New implementation to free up Redis subscriptions when websockets close. "
+"This prevents memory sap when Redis Output Buffer and Output Lists build "
+"when websockets are abandoned."
+msgstr ""
+
+#: of ws4redis.subscriber.RedisSubscriber.send_persited_messages:1
+msgid ""
+"This method is called immediately after a websocket is openend by the "
+"client, so that persisted messages can be sent back to the client upon "
+"connection."
+msgstr ""
+
+#: of ws4redis.subscriber.RedisSubscriber.set_pubsub_channels:1
+msgid ""
+"Initialize the channels used for publishing and subscribing messages "
+"through the message queue."
+msgstr ""
+
+#: ../../api.rst:58
+msgid ""
+"If the overloaded class calls any blocking functions, such as ``sleep``, "
+"``read``, ``select`` or similar, make sure that these functions are "
+"patched by the gevent library, otherwise *all* connections will block "
+"simultaneously."
+msgstr ""
+

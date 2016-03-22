@@ -1,0 +1,283 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 18:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../../changelog.rst:5
+msgid "Release History"
+msgstr ""
+
+#: ../../changelog.rst:8
+msgid "0.4.7 develop"
+msgstr ""
+
+#: ../../changelog.rst:12
+msgid "0.4.6"
+msgstr ""
+
+#: ../../changelog.rst:13
+msgid ""
+"Added support for the Sec-WebSocket-Protocol header. Thanks to Erwin "
+"Junge."
+msgstr ""
+
+#: ../../changelog.rst:14
+msgid "Fixed bug in unpacking binary websocket protocol."
+msgstr ""
+
+#: ../../changelog.rst:17
+msgid "0.4.5"
+msgstr ""
+
+#: ../../changelog.rst:18
+msgid "created 1 requirements file under ``examples/chatserver/requirements.txt``"
+msgstr ""
+
+#: ../../changelog.rst:19
+msgid "renamed chatclient.py to test_chatclient.py - for django-nose testrunner"
+msgstr ""
+
+#: ../../changelog.rst:20
+msgid "migrated example project to django 1.7"
+msgstr ""
+
+#: ../../changelog.rst:21
+msgid "edited ``docs/testing.rst`` to show new changes for using example project"
+msgstr ""
+
+#: ../../changelog.rst:24
+msgid "0.4.4"
+msgstr ""
+
+#: ../../changelog.rst:25
+msgid ""
+"Added method ``release()`` to ``RedisSubscriber`` and calling this method"
+" each time a Websocket closes, for whatever reason. This should avoid "
+"some reported memory issues."
+msgstr ""
+
+#: ../../changelog.rst:29
+msgid "0.4.3"
+msgstr ""
+
+#: ../../changelog.rst:30
+msgid ""
+"Fixed: **django-websocket-redis** failed to initialize under some "
+"circumstances in combination with Django-1.7. This only happened for "
+"logged in users and threw this exception: "
+"``django.core.exceptions.AppRegistryNotReady: Models aren't loaded yet.``"
+msgstr ""
+
+#: ../../changelog.rst:33
+msgid ""
+"Added setup on how to run **django-websocket-redis** with uWSGI but "
+"without NGiNX."
+msgstr ""
+
+#: ../../changelog.rst:36
+msgid "0.4.2"
+msgstr ""
+
+#: ../../changelog.rst:37
+msgid ""
+"Message echoing can be switched “on” and “off” according to the user "
+"needs. Before it was “on” by default."
+msgstr ""
+
+#: ../../changelog.rst:39
+msgid ""
+"Many changes to get this app compatible with Python3. This is still not "
+"finished, since the pilfered module ``websocket.py`` is not PY3 "
+"compatible yet."
+msgstr ""
+
+#: ../../changelog.rst:41
+msgid ""
+"Added a class ``RedisMessage`` to pass and store the message to and from "
+"the websocket. Before this was just a string with serialized data."
+msgstr ""
+
+#: ../../changelog.rst:45
+msgid "0.4.1"
+msgstr ""
+
+#: ../../changelog.rst:46
+msgid "Fixed: ``request.user.username`` has been replaced by ``get_username()``."
+msgstr ""
+
+#: ../../changelog.rst:49
+msgid "0.4.0"
+msgstr ""
+
+#: ../../changelog.rst:50
+msgid "Messages can be sent to users being member of one or more Django groups."
+msgstr ""
+
+#: ../../changelog.rst:51
+msgid ""
+"``RedisPublisher`` and ``RedisSubscriber`` now only accept lists for "
+"``users``, ``groups`` and ``sessions``. This makes the API simpler and "
+"more consistent."
+msgstr ""
+
+#: ../../changelog.rst:53
+msgid ""
+"A new magic item ``ws4redis.redis_store.SELF`` has been added to reflect "
+"self referencing in this list, what before was done through "
+"``users=True`` or ``sessions=True``."
+msgstr ""
+
+#: ../../changelog.rst:55
+msgid ""
+"Added the possibility to receive heartbeats. This lets the client "
+"disconnect and attempt to reconnect after a number of heartbeats were "
+"missed. It prevents silent disconnections."
+msgstr ""
+
+#: ../../changelog.rst:57
+msgid "Refactored the examples."
+msgstr ""
+
+#: ../../changelog.rst:58
+msgid "Added reusable JavaScript code for the client."
+msgstr ""
+
+#: ../../changelog.rst:59
+msgid ""
+"Added a context processor to inject some settings from ``ws4redis`` into "
+"templates."
+msgstr ""
+
+#: ../../changelog.rst:62
+msgid "0.3.1"
+msgstr ""
+
+#: ../../changelog.rst:63
+msgid ""
+"Keys for entries in Redis datastore can be prefixed by an optional "
+"string. This may be required to avoid namespace clashes."
+msgstr ""
+
+#: ../../changelog.rst:67
+msgid "0.3.0"
+msgstr ""
+
+#: ../../changelog.rst:68
+msgid ""
+"Added possibility to publish and subscribe for Django Groups, "
+"additionally to Users and Sesions."
+msgstr ""
+
+#: ../../changelog.rst:69
+msgid ""
+"To ease the communication between Redis and the Django, a new class "
+"``RedisPublisher`` has been added as Programming Interface for the Django"
+" loop. Before, one had to connect to the Redis datastore directly to send"
+" messages to the Websoclet loop."
+msgstr ""
+
+#: ../../changelog.rst:72
+msgid ""
+"Renamed configuration setting ``WS4REDIS_STORE`` to "
+"``WS4REDIS_SUBSCRIBER``."
+msgstr ""
+
+#: ../../changelog.rst:75
+msgid "0.2.3"
+msgstr ""
+
+#: ../../changelog.rst:76
+msgid "Fixed: Use flush to discard received PONG message."
+msgstr ""
+
+#: ../../changelog.rst:79
+msgid "0.2.2"
+msgstr ""
+
+#: ../../changelog.rst:80
+msgid ""
+"Moved mokey patching for Redis socket into the runner. This sometimes "
+"caused errors when running in development mode."
+msgstr ""
+
+#: ../../changelog.rst:82
+msgid ""
+"Added timeout to select call. This caused IOerrors when running under "
+"uWSGI and the websocket was idle."
+msgstr ""
+
+#: ../../changelog.rst:86
+msgid "0.2.1"
+msgstr ""
+
+#: ../../changelog.rst:87
+msgid ""
+"Reverted issue #1 and dropped compatibility with Django-1.4 since the "
+"response status must use force_str."
+msgstr ""
+
+#: ../../changelog.rst:91
+msgid "0.2.0"
+msgstr ""
+
+#: ../../changelog.rst:92
+msgid "Major API changes."
+msgstr ""
+
+#: ../../changelog.rst:93
+msgid "Use ``WS4REDIS_...`` in Django settings."
+msgstr ""
+
+#: ../../changelog.rst:94
+msgid "Persist messages, allowing server reboots and reconnecting the client."
+msgstr ""
+
+#: ../../changelog.rst:95
+msgid "Share the file descriptor for Redis for all open connections."
+msgstr ""
+
+#: ../../changelog.rst:96
+msgid "Allow to override the subscribe/publish engine."
+msgstr ""
+
+#: ../../changelog.rst:99
+msgid "0.1.2"
+msgstr ""
+
+#: ../../changelog.rst:100
+msgid "Fixed: Can use publish to websocket without subscribing."
+msgstr ""
+
+#: ../../changelog.rst:103
+msgid "0.1.1"
+msgstr ""
+
+#: ../../changelog.rst:104
+msgid ""
+"Instead of CLI monkey patching, explicitly patch the "
+"redis.connection.socket using ``gevent.socket``."
+msgstr ""
+
+#: ../../changelog.rst:108
+msgid "0.1.0"
+msgstr ""
+
+#: ../../changelog.rst:109
+msgid "Initial revision."
+msgstr ""
+

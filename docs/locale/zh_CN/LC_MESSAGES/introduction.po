@@ -1,0 +1,242 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 11:07+0800\n"
+"PO-Revision-Date: 2016-03-22 16:54+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+"Last-Translator: tolerious <tolerious@qq.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 1.8.7\n"
+
+#: ../../introduction.rst:5
+msgid "Introduction"
+msgstr "简介"
+
+#: ../../introduction.rst:7
+msgid ""
+"Application servers such as Django and Ruby-on-Rails have been developed "
+"without intention to create long living connections. Therefore these "
+"frameworks are not a good fit for web applications, which shall react on "
+"asynchronous events initiated by the server. One feasible solution for "
+"clients wishing to be notified for events is to continuously poll the "
+"server using an XMLHttpRequest (Ajax). This however produces a lot of "
+"traffic, and depending on the granularity of the polling interval, it is "
+"not a viable solution for real time events such as chat applications or "
+"browser based multiplayer games."
+msgstr ""
+"Django和Ruby-on-Rails框架在当时就没有被设计成为能够建立长连接的服务器。因"
+"此这些框架对于想要使用由服务器发起的异步事件的web应用来说，并不是一个好的"
+"选择。对于客户端想要被服务器端通知的一个可行的解决办法是使用不断的轮询服"
+"务器也就是使用XMLHttpRequest(Ajax)。这种方式带来的问题是会产生很大的流"
+"量，并且依赖于对服务器请求的时间间隔，这对于要求实时性比较高的应用，例如"
+"聊天室或者机遇浏览器的多用户游戏来说，并不是一个可行的解决方案。"
+
+#: ../../introduction.rst:15
+msgid ""
+"Web application written in Python usually use WSGI as the communication "
+"layer between the webserver and themselves. WSGI is a stateless protocol "
+"which defines how to handle requests and making responses in a simple "
+"way abstracted from the HTTP protocol, but by design it does not support "
+"non-blocking requests."
+msgstr ""
+"基于Python写的网络应用，通常会使用WSGI作为服务器与应用之间的通信层。WSGI"
+"协议是一种无状态的协议，用一种简单的方式从HTTP协议中抽取，定义了如何处理"
+"请求，和返回响应的协议，但是它没有被设计成为支持非阻塞式的请求。"
+
+#: ../../introduction.rst:22
+msgid "The WSGI protocol can not support websockets"
+msgstr "WSGI协议不能够支持websocket"
+
+#: ../../introduction.rst:24
+msgid ""
+"In Django, the web server accepts an incoming request, sets up a WSGI "
+"dictionary which then is passed to the application server. There the "
+"HTTP headers and the payload is created and immediately afterwards the "
+"request is finished and flushed to the client. This processing typically "
+"requires a few dozen milliseconds. The throughput, such a server can "
+"handle, is the average response time multiplied by the number of "
+"concurrent workers. Each worker requires its own thread/process and a "
+"good rule of thumb is to configure not more than twice as many workers "
+"as the number of cores available on that host. Otherwise you will see a "
+"decrease in overall performance, caused by too many context switches, "
+"for which the scheduler of the operating system is responsible."
+msgstr ""
+"在Django中，web服务器接收一个到来的请求，建立起一个WSGI字典，然后把这个字"
+"段传给应用服务器。Http的头和内容由此被建立，并且在请求结束后，立刻返回给"
+"客户端。这个过程需要十几个毫秒。一个server所能处理的吞吐量是由平均响应时"
+"间乘以当前正在请求响应worker的数量。每个worker需要它自己的线程/进程，所以"
+"一个好的方式是配置worker的数量不要多于服务器核心数的两倍。否则你讲看到整"
+"体的性能会出现下降，因为要进行太多的上下文环境切换，因为要确保操作系统的"
+"调度是可靠的。"
+
+#: ../../introduction.rst:33
+msgid ""
+"Due to this workflow, it is almost impossible to add support for long "
+"term connections, such as websockets, on top of the WSGI protocol "
+"specification. Therefore most websocket implementations go for another "
+"approach. The websocket connection is controlled by a service running "
+"side by side with the default application server. Here, a webserver with "
+"support for long term connections, dispatches the requests from the "
+"clients."
+msgstr ""
+"由于这种工作流程，在WSGI协议的顶层支持长连接，例如websocket，是不太可能"
+"的。因此大多数websocket实现都采用了另一种方法，对于websocket连接被一个跟"
+"默认应用服务器一起工作的服务所控制，此时，一个支持长连接的web服务器，用来"
+"分发来自客户端的请求。"
+
+#: ../../introduction.rst:39
+msgid ""
+"A webserver able to dispatch websocket requests is the NGiNX_ server. "
+"Normal requests are sent to Django using the WSGI protocol, whereas the "
+"long living websocket connections are passed over to a special service "
+"responsible only for that."
+msgstr ""
+"NGiNX_ 就是一种能够分发websocket请求的服务器。普通的请求被送往采用WSGI协"
+"议的Django服务器，反之，websocket请求被送往专门处理长连接的服务上去。"
+
+#: ../../introduction.rst:43
+msgid ""
+"A typical implementation proposal is to use socket.io_ running inside a "
+"NodeJS_ loop."
+msgstr "一个典型的实现是用 socket.io_ 让其跑在一个 NodeJS_ 的循环中，"
+
+#: ../../introduction.rst:45
+msgid "|websocket-nodejs|"
+msgstr ""
+
+#: ../../introduction.rst:47
+msgid ""
+"Here, **Django** communicates with **Node.JS** using a RESTful API. This "
+"however is hard to maintain because it pulls in two completely different "
+"technologies. In alternative proposals, other Python based asynchronous "
+"event frameworks such as Tornado_ or Twisted_ are used. But they all "
+"look like makeshift solutions, since one has to run a second framework "
+"side by side with **Django**. This makes the project dependent on "
+"another infrastructure and thus harder to maintain. Moreover, having to "
+"run two concurrent frameworks can be quite embarrassing during "
+"application development, specially while debugging code."
+msgstr ""
+"此时， **Django**  采用RESTful API与 **Node.JS** 进行通信。然后，这种方式"
+"是很难进行维护的，因为它需要两种完全不同的技术来实现。在可供选择的建议"
+"中， 其他Python实现的基于异步通信的框架，例如 Tornado_ 或者是 Twisted_ 会"
+"被使用。但是那些都是缓兵之计， 因为你还需要另外再跟 **Django** 一起跑一个"
+"框架。这回导致项目依赖于另一种组织架构，从而导致很难进行维护。而且，必须"
+"同时跑两种框架，这会使得在应用开发期间让人举步维艰，尤其是在查找bug的时"
+"候。"
+
+#: ../../introduction.rst:57
+msgid "uWSGI"
+msgstr "uWSGI"
+
+#: ../../introduction.rst:59
+msgid ""
+"While searching for a simpler solution, I found out that `uWSGI offers "
+"websockets`_ right out of the box. With Redis_ as a message queue, and a "
+"few lines of Python code, one can bidirectionally communicate with any "
+"WSGI based framework, for instance **Django**. Of course, here it also "
+"is prohibitive to create a new thread for each open websocket "
+"connection. Therefore that part of the code runs in one single thread/"
+"process for all open connections in a cooperative concurrency mode using "
+"the excellent gevent_ and greenlet_ libraries."
+msgstr ""
+
+#: ../../introduction.rst:66
+msgid "This approach has some advantages:"
+msgstr ""
+
+#: ../../introduction.rst:68
+msgid "It is simpler to implement."
+msgstr ""
+
+#: ../../introduction.rst:72
+msgid "The asynchronous I/O loop handling websockets can run"
+msgstr ""
+
+#: ../../introduction.rst:70
+msgid ""
+"inside Django with ``./manage.py runserver``, giving full debugging "
+"control."
+msgstr ""
+
+#: ../../introduction.rst:71
+msgid "as a stand alone HTTP server, using uWSGI."
+msgstr ""
+
+#: ../../introduction.rst:72
+msgid ""
+"using NGiNX or Apache (>= 2.4) as proxy in two decoupled loops, one for "
+"WSGI and one for websocket HTTP in front of two separate uWSGI workers."
+msgstr ""
+
+#: ../../introduction.rst:74
+msgid ""
+"The whole Django API is available in this loop, provided that no "
+"blocking calls are made. Therefore the websocket code can access the "
+"Django configuration, the user and the session cache, etc."
+msgstr ""
+
+#: ../../introduction.rst:80
+msgid "Using Redis as a message queue"
+msgstr ""
+
+#: ../../introduction.rst:82
+msgid ""
+"One might argue that all this is not as simple, since an additional "
+"service – the Redis data server – must run side by side with Django. "
+"Websockets are bidirectional but their normal use case is to trigger "
+"server initiated events on the client. Although the other direction is "
+"possible, it can be handled much easier using Ajax – adding an "
+"additional TCP/IP handshake."
+msgstr ""
+
+#: ../../introduction.rst:87
+msgid ""
+"Here, the only “stay in touch with the client” is the file descriptor "
+"attached to the websocket. And since we speak about thousands of open "
+"connections, the footprint in terms of memory and CPU resources must be "
+"brought down to a minimum. In this implementation, only one open file "
+"handle is required for each open websocket connection."
+msgstr ""
+
+#: ../../introduction.rst:92
+msgid ""
+"Productive webservers require some kind of session store anyway. This "
+"can be a memcached_ or a Redis data server. Therefore, such a service "
+"must run anyway and if we can choose between one of them, we shall use "
+"one with integrated message queuing support. When using Redis for "
+"caching and as a session store, we practically get the message queue for "
+"free."
+msgstr ""
+
+#: ../../introduction.rst:99
+msgid "Scalability"
+msgstr ""
+
+#: ../../introduction.rst:101
+msgid ""
+"One of the nice features of Redis is its infinite scalability. If one "
+"Redis server can't handle its workload, interconnect it with another one "
+"and all events and messages are mirrored across this network. Since "
+"**django-websocket-redis** can be deployed multiple times and as self-"
+"contained Django applications, this configuration can scale infinitely, "
+"just interconnect the Redis servers to each other."
+msgstr ""
+
+#: ../../introduction.rst:107
+msgid ""
+"On the main entry point of your site, add a loadbalancer capable of "
+"proxying the websocket protocol. This can be any OSI level 4 "
+"loadbalancer such as the `Linux Virtual Server`_ project, or if you "
+"prefer OSI level 7, the excellent HAProxy_."
+msgstr ""

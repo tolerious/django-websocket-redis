@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 18:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../../installation.rst:5
+msgid "Installation and Configuration"
+msgstr ""
+
+#: ../../installation.rst:8
+msgid "Installation"
+msgstr ""
+
+#: ../../installation.rst:9
+msgid ""
+"If not already done, install the **Redis server**, using the installation"
+" tool offered by the operating system, such as ``aptitude``, ``yum``, "
+"``port`` or install `Redis from source`_."
+msgstr ""
+
+#: ../../installation.rst:14
+msgid "Start the Redis service on your host"
+msgstr ""
+
+#: ../../installation.rst:20
+msgid "Check if Redis is up and accepting connections"
+msgstr ""
+
+#: ../../installation.rst:27
+msgid ""
+"Install **Django Websocket for Redis**. The latest stable release can be "
+"found on PyPI"
+msgstr ""
+
+#: ../../installation.rst:33
+msgid "or the newest development version from github"
+msgstr ""
+
+#: ../../installation.rst:39
+msgid ""
+"**Websocket for Redis** does not define any database models. It can "
+"therefore be installed without any database synchronization."
+msgstr ""
+
+#: ../../installation.rst:44
+msgid "Dependencies"
+msgstr ""
+
+#: ../../installation.rst:45
+msgid "Django_ >=1.5"
+msgstr ""
+
+#: ../../installation.rst:46
+msgid "redis >=2.10.3 (a `Python client for Redis`_)"
+msgstr ""
+
+#: ../../installation.rst:47
+msgid "uWSGI_ >=1.9.20"
+msgstr ""
+
+#: ../../installation.rst:48
+msgid "gevent_ >=1.0.1"
+msgstr ""
+
+#: ../../installation.rst:49
+msgid "greenlet_ >=0.4.5"
+msgstr ""
+
+#: ../../installation.rst:50
+msgid "optional, but recommended: wsaccel_ >=0.6"
+msgstr ""
+
+#: ../../installation.rst:54
+msgid "Configuration"
+msgstr ""
+
+#: ../../installation.rst:55
+msgid "Add ``\"ws4redis\"`` to your project's ``INSTALLED_APPS`` setting"
+msgstr ""
+
+#: ../../installation.rst:65
+msgid ""
+"Specify the URL that distinguishes websocket connections from normal "
+"requests"
+msgstr ""
+
+#: ../../installation.rst:71
+msgid ""
+"If the Redis datastore uses connection settings other than the defaults, "
+"use this dictionary to override these values"
+msgstr ""
+
+#: ../../installation.rst:83
+msgid "Specify only the values, which deviate from the default."
+msgstr ""
+
+#: ../../installation.rst:85
+msgid ""
+"**Websocket for Redis** can be configured with ``WS4REDIS_EXPIRE``, to "
+"additionally persist messages published on the message queue. This is "
+"advantageous in situations, where clients shall be able to access the "
+"published information after reconnecting the websocket, for instance "
+"after a page is reloaded."
+msgstr ""
+
+#: ../../installation.rst:90
+msgid ""
+"This directive sets the number in seconds, each received message is "
+"persisted by Redis, additionally of being published on the message queue"
+msgstr ""
+
+#: ../../installation.rst:97
+msgid ""
+"**Websocket for Redis** can prefix each entry in the datastore with a "
+"string. By default, this is empty. If the same Redis connection is used "
+"to store other kinds of data, in order to avoid name clashes you're "
+"encouraged to prefix these entries with a unique string, say"
+msgstr ""
+
+#: ../../installation.rst:105
+msgid ""
+"Override ``ws4redis.store.RedisStore`` with a customized class, in case "
+"you need an alternative implementation of that class"
+msgstr ""
+
+#: ../../installation.rst:112
+msgid ""
+"This directive is required during development and ignored in production "
+"environments. It overrides Django's internal main loop and adds a URL "
+"dispatcher in front of the request handler"
+msgstr ""
+
+#: ../../installation.rst:119
+msgid "Ensure that your template context contains at least these processors:"
+msgstr ""
+
+#: ../../installation.rst:131
+msgid ""
+"**Websocket for Redis** allows each client to subscribe and to publish on"
+" every possible channel. To restrict and control access, the "
+"``WS4REDIS_ALLOWED_CHANNELS`` options should be set to a callback "
+"function anywhere inside your project. See the example and warnings in "
+":ref:`SafetyConsiderations`."
+msgstr ""
+
+#: ../../installation.rst:137
+msgid "Check your Installation"
+msgstr ""
+
+#: ../../installation.rst:138
+msgid ""
+"With **Websockets for Redis** your Django application has immediate "
+"access to code written for websockets. Change into the ``examples`` "
+"directory and start a sample chat server"
+msgstr ""
+
+#: ../../installation.rst:148
+msgid ""
+"Point a browser onto http://localhost:8000/chat/, you should see a simple"
+" chat server. Enter a message and send it to the server. It should be "
+"echoed immediately on the billboard."
+msgstr ""
+
+#: ../../installation.rst:151
+msgid ""
+"Point a second browser onto the same URL. Now each browser should echo "
+"the message entered into input field."
+msgstr ""
+
+#: ../../installation.rst:154
+msgid ""
+"In the examples directory, there are two chat server implementations, "
+"which run out of the box. One simply broadcasts messages to every client "
+"listening on that same websocket URL. The other chat server can be used "
+"to send messages to specific users logged into the system. Use these "
+"demos as a starting point for your application."
+msgstr ""
+
+#: ../../installation.rst:161
+msgid "Replace memcached with Redis"
+msgstr ""
+
+#: ../../installation.rst:163
+msgid ""
+"Since Redis has to be added as an additional service to the current "
+"infrastructure, at least another service can be safely removed: "
+"*memcached*. This is required by typical Django installations and is used"
+" for caching and session storage."
+msgstr ""
+
+#: ../../installation.rst:167
+msgid ""
+"It's beyond the scope of this documentation to explain how to set up a "
+"caching and/or session store using Redis, so please check django-redis-"
+"sessions_ and optionally django-redis-cache_ for details, but it should "
+"be as easy as installing"
+msgstr ""
+
+#: ../../installation.rst:175
+msgid "and adding"
+msgstr ""
+
+#: ../../installation.rst:182
+msgid ""
+"to the file ``settings.py``. Here is a full description on how to use "
+"`Redis as Django session store and cache backend`_."
+msgstr ""
+
+#: ../../installation.rst:185
+msgid ""
+"Also keep in mind, that accessing session data is a blocking I/O call. "
+"Hence the connection from the websocket loop to the session store **must "
+"use gevent**, otherwise the websockets may block altogether. Therefore, "
+"if you for some reason you have to remain with your current session "
+"store, make sure its monkey patched with gevent."
+msgstr ""
+
+#: ../../installation.rst:190
+msgid ""
+"**Never** store session data in the database in combination with "
+"*Websockets for Redis*!"
+msgstr ""
+
