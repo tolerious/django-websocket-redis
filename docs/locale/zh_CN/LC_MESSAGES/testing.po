@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 18:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../../testing.rst:5
+msgid "Testing Websockets for Redis"
+msgstr ""
+
+#: ../../testing.rst:8
+msgid "A simple Chat server"
+msgstr ""
+
+#: ../../testing.rst:9
+msgid ""
+"In the ``examples`` directory, there are two demo chat servers. To start "
+"them, first initialize the SQLite database"
+msgstr ""
+
+#: ../../testing.rst:31
+msgid "and then start the server"
+msgstr ""
+
+#: ../../testing.rst:42
+msgid ""
+"Point a browser onto http://localhost:8000/admin/, login as the 'admin' "
+"user using the password 'secret' and add additional users. Enable their "
+"staff status, so that they can use the admin interface to log into the "
+"testing application."
+msgstr ""
+
+#: ../../testing.rst:46
+msgid ""
+"With http://localhost:8000/chat/ you can send messages to specific users,"
+" provided they are logged in. To log in as another user, use Django's "
+"admin interface."
+msgstr ""
+
+#: ../../testing.rst:50
+msgid "Simple Broadcasting"
+msgstr ""
+
+#: ../../testing.rst:51
+msgid ""
+"On http://localhost:8000/chat/ there is a chat server, which simply "
+"broadcasts messages to all browsers accessing this same URL."
+msgstr ""
+
+#: ../../testing.rst:55
+msgid "Testing uWSGI"
+msgstr ""
+
+#: ../../testing.rst:56
+msgid ""
+"Before configuring NGiNX to run in front of two instances of uWSGI, it is"
+" recommended to run uWSGI as a stand alone server for testing purpose. "
+"The entry point of this server makes the distinction between normal HTTP "
+"and Websocket requests. In directory ``examples``, start uwsgi as"
+msgstr ""
+
+#: ../../testing.rst:64
+msgid "Both chat server tests from above should run in this configuration."
+msgstr ""
+
+#: ../../testing.rst:67
+msgid "Running Unit Tests"
+msgstr ""
+
+#: ../../testing.rst:73
+msgid ""
+"Currently it is not possible to simulate more than one client at a time. "
+"Django's built in LiveServerTestCase_ can not handle more than one "
+"simultaneous open connection, and thus more sophisticated tests with more"
+" than one active Websockets are not possible."
+msgstr ""
+
+#: ../../testing.rst:79
+msgid "Running Stress Tests"
+msgstr ""
+
+#: ../../testing.rst:80
+msgid ""
+"To run stress tests, change into directory ``stress-tests``. Since stress"
+" tests shall check the performance in a real environment, the server and "
+"the testing client must be started independently."
+msgstr ""
+
+#: ../../testing.rst:83
+msgid "First start the server, as you would in productive environments."
+msgstr ""
+
+#: ../../testing.rst:96
+msgid ""
+"then go back to the other shell (also with the virtualenv activated) and "
+"start one of the testing clients, using the nose_ framework"
+msgstr ""
+
+#: ../../testing.rst:103
+msgid "(this test, on my MacBook, requires about 1.5 seconds)"
+msgstr ""
+
+#: ../../testing.rst:105
+msgid "or start a similar test using real threads instead of greenlets"
+msgstr ""
+
+#: ../../testing.rst:111
+msgid "(this test, on my MacBook, requires about 2.5 seconds)"
+msgstr ""
+
+#: ../../testing.rst:113
+msgid ""
+"Both clients subscribe to 1000 concurrent Websockets. Then a message is "
+"published from another Websocket. If all the clients receive that "
+"message, the test is considered as successful. Both perform the same "
+"test, but ``test_uwsgi_gevent.py`` uses greenlet_'s for each client to "
+"simulate, whereas ``test_uwsgi_threads.py`` uses `Python thread`_'s."
+msgstr ""
+
+#: ../../testing.rst:118
+msgid ""
+"If these tests do not work in your environment, check your file "
+"descriptors limitations. Use the shell command ``ulimit -n`` and adopt it"
+" to these requirements. Alternatively reduce the number of concurrent "
+"clients in the tests."
+msgstr ""
+

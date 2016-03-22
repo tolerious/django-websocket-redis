@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 11:07+0800\n"
+"PO-Revision-Date: 2016-03-22 14:33+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 1.8.7\n"
+
+#: ../../index.rst:5
+msgid "Websockets for Django applications using Redis as message queue"
+msgstr "Django Websockets的应用要用到Redis作为消息队列"
+
+#: ../../index.rst:7
+msgid ""
+"This module implements websockets on top of Django without requiring any "
+"additional framework. For messaging it uses the `Redis datastore`_. In a "
+"production environment, it is intended to work under uWSGI_ and behind "
+"NGiNX_. In a development environment, it can be used with ``manage "
+"runserver``."
+msgstr ""
+"这个模块在Django的顶端实现了websocket，不需要任何额外的框架。用 `Redis "
+"datastore`_ 来存储消息。在生产环境中，可以配合 uWSGI_ 和 NGiNX_ 进行使"
+"用。在开发环境中，你可以使用 ``manage runserver`` 命令来启动服务器。"
+
+#: ../../index.rst:12
+msgid "Project's home"
+msgstr "项目主页"
+
+#: ../../index.rst:13
+msgid "Check for the latest release of this project on `Github`_."
+msgstr "你可以在 `Github`_ 上检查最新的发布版本."
+
+#: ../../index.rst:15
+msgid "Please report bugs or ask questions using the `Issue Tracker`_."
+msgstr "你可以在 `Issue Tracker`_  上面报告bug或者进行提问。"
+
+#: ../../index.rst:18
+msgid "Contents"
+msgstr "目录"
+
+#: ../../index.rst:33
+msgid "Indices and tables"
+msgstr "索引和附录"
+
+#: ../../index.rst:35
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../index.rst:36
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../index.rst:37
+msgid ":ref:`search`"
+msgstr ""

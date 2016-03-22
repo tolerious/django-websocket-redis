@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 18:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../../debugging.rst:5
+msgid "Debugging"
+msgstr ""
+
+#: ../../debugging.rst:7
+msgid ""
+"This project adds some extra complexity to Django projects with "
+"websocket-redis. This is because now there are two entry points instead "
+"of one. The default **Django** one, based on the WSGI protocol, which is "
+"used to handle the typical HTTP-Request-Response. And the new one "
+"**Websocket for Redis**, based on the HTTP, which handles the websocket "
+"part."
+msgstr ""
+
+#: ../../debugging.rst:13
+msgid "Django Loop and Websocket Loop"
+msgstr ""
+
+#: ../../debugging.rst:14
+msgid ""
+"In this documentation, I use the terms *Django Loop* and *Websocket Loop*"
+" to distinguish these two entry points. You shall rarely need to access "
+"the Websocket Loop, because intentionally there are no hooks for adding "
+"server side logics. The latter must reside inside the Django loop using "
+"Redis as the communication engine between those two."
+msgstr ""
+
+#: ../../debugging.rst:19
+msgid ""
+"A reason one might need to debug inside the Websocket loop, is, because "
+"the subscriber was overridden using the configuration setting "
+"``WS4REDIS_SUBSCRIBER``. Therefore, one of the aims of this project is to"
+" facilitate the entry level for debugging. During development, hence the "
+"server is started with ``./manage.py runserver``, this is achieved by "
+"hijacking the Django loop. Then the connection is kept open, until the "
+"client closes the Websocket."
+msgstr ""
+
+#: ../../debugging.rst:25
+msgid ""
+"If existing workers do not return, Django creates a thread for new "
+"incoming requests. This means that during debugging, each Websocket "
+"connection owns its own thread. Such an approach is perfectly feasible, "
+"however it scales badly and therefore should not be used during "
+"production."
+msgstr ""
+
+#: ../../debugging.rst:30
+msgid "Query the datastore"
+msgstr ""
+
+#: ../../debugging.rst:31
+msgid ""
+"Sometimes you might need to know, why some data is bogus or was not "
+"sent/received by the client. The easiest way to do this is to access the "
+"Redis datastore."
+msgstr ""
+
+#: ../../debugging.rst:39
+msgid ""
+"In this command line interface, you can find out about all the data "
+"managed by **Websocket for Redis**. Redis offers many commands_ from "
+"which a few are useful here:"
+msgstr ""
+
+#: ../../debugging.rst:45
+msgid "keys"
+msgstr ""
+
+#: ../../debugging.rst:50
+msgid ""
+"Gives a list of all keys used in Redis. If a ``WS4REDIS_PREFIX`` is "
+"specified in ``settings.py``, this prefixing string can be used to limit "
+"the keys to those used by **Websocket for Redis**."
+msgstr ""
+
+#: ../../debugging.rst:53
+msgid ""
+"If, for instance you're interested into all messages available for "
+"broadcast, then invoke:"
+msgstr ""
+
+#: ../../debugging.rst:59
+msgid "with the *prefix*, if set."
+msgstr ""
+
+#: ../../debugging.rst:62
+msgid "get"
+msgstr ""
+
+#: ../../debugging.rst:67
+msgid ""
+"This returns the data available for broadcast for the facility named "
+"“foo”."
+msgstr ""
+
+#: ../../debugging.rst:73
+msgid ""
+"This returns the data available for user “john” for the facility named "
+"“foo”."
+msgstr ""
+
+#: ../../debugging.rst:79
+msgid ""
+"This returns the data available for the browser owning the session-id "
+"``wnqd0gbw5obpnj50zwh6yaq2yz4o8g9x`` for the facility named “foo”."
+msgstr ""
+
+#: ../../debugging.rst:83
+msgid "subscribe"
+msgstr ""
+
+#: ../../debugging.rst:84
+msgid ""
+"If **Websocket for Redis** is configured to not cache published data, no "
+"data buckets are filled. This is the case, when the configuration option "
+"``WS4REDIS_EXPIRE`` is set to zero or None. In such a situation, the "
+"Redis commands ``keys`` and ``get`` won't give you any information. But "
+"you can subscribe for listening to a named channel:"
+msgstr ""
+
+#: ../../debugging.rst:93
+msgid ""
+"This command blocks until some data is received. It then dumps the "
+"received data."
+msgstr ""
+
+#: ../../debugging.rst:95
+msgid ""
+"You have to reenter the subscribe command, if you want to listen for "
+"further data."
+msgstr ""
+

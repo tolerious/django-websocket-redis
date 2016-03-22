@@ -10,3 +10,4 @@ docs/_build
 dist
 htmlcov
 /node_modules/
+docs/locale/zh_CN/LC_MESSAGES/*.mo

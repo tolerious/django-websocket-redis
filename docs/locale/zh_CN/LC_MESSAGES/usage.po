@@ -1,0 +1,359 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Copyright 2016, Jacob Rief
+# This file is distributed under the same license as the
+# django-websocket-redis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-websocket-redis 0.4.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-22 18:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: ../../usage.rst:5
+msgid "Using Websockets for Redis"
+msgstr ""
+
+#: ../../usage.rst:7
+msgid ""
+"**Websocket for Redis** allows uni- and bidirectional communication from "
+"the client to the server and vice versa. Each websocket is identified by "
+"the part of the URL which follows the prefix ``/ws/``. Use different "
+"uniform locators to distinguish between unrelated communication channels."
+msgstr ""
+
+#: ../../usage.rst:11
+msgid ""
+"The prefix ``/ws/`` is specified using the configuration setting "
+"``WEBSOCKET_URL`` and can be changed to whatever is appropriate."
+msgstr ""
+
+#: ../../usage.rst:15
+msgid "Client side"
+msgstr ""
+
+#: ../../usage.rst:16
+msgid ""
+"The idea is to let a client subscribe for different channels, so that he "
+"only gets notified, when a certain event happens on a channel he is "
+"interested in. Currently there are four such events, *broadcast "
+"notification*, *user notification*, *group notification* and *session "
+"notification*. Additionally, a client may declare on initialization, on "
+"which channels he wishes to publish a message. The latter is not that "
+"important for a websocket implementation, because it can be achieved "
+"otherwise, using the well known XMLHttpRequest (Ajax) methods."
+msgstr ""
+
+#: ../../usage.rst:24
+msgid "A minimal client in pure JavaScript"
+msgstr ""
+
+#: ../../usage.rst:46
+msgid "Client JavaScript depending on jQuery"
+msgstr ""
+
+#: ../../usage.rst:47
+msgid ""
+"When using jQuery, clients can reconnect on broken Websockets. "
+"Additionally the client awaits for heartbeat messages and reconnects if "
+"too many of them were missed."
+msgstr ""
+
+#: ../../usage.rst:50
+msgid "Include the client code in your template:"
+msgstr ""
+
+#: ../../usage.rst:56
+msgid "and access the Websocket code:"
+msgstr ""
+
+#: ../../usage.rst:83
+msgid ""
+"This example shows how to configure a Websocket for bidirectional "
+"communication."
+msgstr ""
+
+#: ../../usage.rst:85
+msgid ""
+"A client wishing to trigger events on the server side, shall use "
+"XMLHttpRequests (Ajax), as they are much more suitable, rather than "
+"messages sent via Websockets. The main purpose for Websockets is to "
+"communicate asynchronously from the server to the client."
+msgstr ""
+
+#: ../../usage.rst:91
+msgid "Server Side"
+msgstr ""
+
+#: ../../usage.rst:92
+msgid ""
+"The Django loop is triggered by client HTTP requests, except for special "
+"cases such as jobs triggered by, for instance django-celery_. "
+"Intentionally, there is no way to trigger events in the Django loop "
+"through a Websocket request. Hence, all of the communication between the "
+"Websocket loop and the Django loop must pass through the message queue."
+msgstr ""
+
+#: ../../usage.rst:100
+msgid "RedisSubscriber"
+msgstr ""
+
+#: ../../usage.rst:101
+msgid ""
+"In the Websocket loop, the message queue is controlled by the class "
+"``RedisSubscriber``, which can be replaced using the configuration "
+"directive ``WS4REDIS_SUBSCRIBER``."
+msgstr ""
+
+#: ../../usage.rst:105
+msgid "RedisPublisher"
+msgstr ""
+
+#: ../../usage.rst:106
+msgid ""
+"In the Django loop, this message queue is controlled by the class "
+"``RedisPublisher``, which can be accessed by any Django view."
+msgstr ""
+
+#: ../../usage.rst:109
+msgid ""
+"Both, ``RedisSubscriber`` and ``RedisPublisher`` share the same base "
+"class ``RedisStore``."
+msgstr ""
+
+#: ../../usage.rst:112
+msgid "Subscribe to Broadcast Notifications"
+msgstr ""
+
+#: ../../usage.rst:113
+msgid ""
+"This is the simplest form of notification. Every Websocket subscribed to "
+"a broadcast channel is notified, when a message is sent to that named "
+"Redis channel. Say, the Websocket URL is ``ws://www.example.com/ws/foobar"
+"?subscribe-broadcast`` and the Django loop wants to publish a message to "
+"all clients listening on the named facility, referred here as ``foobar``."
+msgstr ""
+
+#: ../../usage.rst:128
+msgid ""
+"now, the message “Hello World” is received by all clients listening for "
+"that broadcast notification."
+msgstr ""
+
+#: ../../usage.rst:132
+msgid "Subscribe to User Notification"
+msgstr ""
+
+#: ../../usage.rst:133
+msgid ""
+"A Websocket initialized with the URL ``ws://www.example.com/ws/foobar"
+"?subscribe-user``, will be notified if that connection belongs to a "
+"logged in user and someone publishes a message on for that user, using "
+"the ``RedisPublisher``."
+msgstr ""
+
+#: ../../usage.rst:144
+msgid ""
+"now, the message “Hello World” is sent to all clients logged in as "
+"``john`` or ``mary`` and listening for that kind of notification."
+msgstr ""
+
+#: ../../usage.rst:147
+msgid ""
+"If the message shall be send to the currently logged in user, then you "
+"may use the magic item ``SELF``."
+msgstr ""
+
+#: ../../usage.rst:157
+msgid "Subscribe to Group Notification"
+msgstr ""
+
+#: ../../usage.rst:158
+msgid ""
+"A Websocket initialized with the URL ``ws://www.example.com/ws/foobar"
+"?subscribe-group``, will be notified if that connection belongs to a "
+"logged in user and someone publishes a message for a group where this "
+"user is member of."
+msgstr ""
+
+#: ../../usage.rst:169
+msgid ""
+"now, the message “Hello World” is sent to all clients logged in as users "
+"which are members of the group ``chatters`` and subscribing to that kind "
+"of notification."
+msgstr ""
+
+#: ../../usage.rst:172
+msgid ""
+"In this context the the magic item ``SELF`` refers to all the groups, the"
+" current logged in user belongs to."
+msgstr ""
+
+#: ../../usage.rst:175
+msgid ""
+"This feature uses a signal handler in the Django loop, which determines "
+"the groups a user belongs to. This list of groups then is persisted "
+"inside a session variable to avoid having the Websocket loop to access "
+"the database."
+msgstr ""
+
+#: ../../usage.rst:180
+msgid "Subscribe to Session Notification"
+msgstr ""
+
+#: ../../usage.rst:181
+msgid ""
+"A Websocket initialized with the URL ``ws://www.example.com/ws/foobar"
+"?subscribe-session``, will be notified if someone publishes a message for"
+" a client owning this session key."
+msgstr ""
+
+#: ../../usage.rst:192
+msgid ""
+"now, the message “Hello World” is sent to all clients using the session "
+"key ``wnqd0gbw5obpnj50zwh6yaq2yz4o8g9x`` and subscribing to that kind of "
+"notification."
+msgstr ""
+
+#: ../../usage.rst:195
+msgid ""
+"In this context the the magic item ``SELF`` refers to all clients owning "
+"the same session key."
+msgstr ""
+
+#: ../../usage.rst:198
+msgid "Publish for Broadcast, User, Group and Session"
+msgstr ""
+
+#: ../../usage.rst:199
+msgid ""
+"A Websocket initialized with the URL ``ws://www.example.com/ws/foobar"
+"?publish-broadcast``, ``ws://www.example.com/ws/foobar?publish-user`` or "
+"``ws://www.example.com/ws/foobar?publish-session`` will publish a message"
+" sent through the Websocket on the named Redis channel "
+"``broadcast:foobar``, ``user:john:foobar`` and "
+"``session:wnqd0gbw5obpnj50zwh6yaq2yz4o8g9x:foobar`` respectively. Every "
+"listener subscribed to any of the named channels, then will be notified."
+msgstr ""
+
+#: ../../usage.rst:205
+msgid ""
+"This configuration only makes sense, if the messages send by the client "
+"using the Websocket, shall not trigger any server side event. A practical"
+" use would be to store current the GPS coordinates of a moving client "
+"inside the Redis datastore. Then Django can fetch these coordinates from "
+"Redis, whenever it requires them."
+msgstr ""
+
+#: ../../usage.rst:221
+msgid ""
+"The argument ``audience`` must be one of ``broadcast``, ``group``, "
+"``user``, ``session`` or ``any``. The method ``fetch_message`` searches "
+"through the Redis datastore to find a persisted message for that channel."
+" The first found message is returned to the caller. If no matching "
+"message was found, ``None`` is returned."
+msgstr ""
+
+#: ../../usage.rst:227
+msgid "Message echoing"
+msgstr ""
+
+#: ../../usage.rst:228
+msgid ""
+"Some kind of applications require to just hold a state object on the "
+"server-side, which is a copy of a corresponding JavaScript object on the "
+"client. These applications do not require message echoing. Here an "
+"incoming message is only dispatched to the subscribed websockets, if the "
+"this message contains a different content. This is the default setting."
+msgstr ""
+
+#: ../../usage.rst:233
+msgid ""
+"Other applications such as chats or games, must be informed on each "
+"message published on the message queue, regardless of its content. These "
+"applications require message echoing. Here an incoming message is always "
+"dispatched to the subscribed websockets. To activate message echoing, "
+"simply append the parameter ``&echo`` to the URL used for connecting to "
+"the websocket."
+msgstr ""
+
+#: ../../usage.rst:239
+msgid "Persisting messages"
+msgstr ""
+
+#: ../../usage.rst:240
+msgid ""
+"If a client connects to a Redis channel for the first time, or if he "
+"reconnects after a page reload, he might be interested in the current "
+"message, previously published on that channel. If the configuration "
+"settings ``WS4REDIS_EXPIRE`` is set to a positive value, **Websocket for "
+"Redis** persists the current message in its key-value store. This message"
+" then is retrieved and sent to the client, immediately after he connects "
+"to the server."
+msgstr ""
+
+#: ../../usage.rst:246
+msgid ""
+"By using client code, which automatically reconnects after the Websocket "
+"closes, one can create a setup which is immune against server and client "
+"reboots."
+msgstr ""
+
+#: ../../usage.rst:252
+msgid "Safety considerations"
+msgstr ""
+
+#: ../../usage.rst:253
+msgid ""
+"The default setting of **Websocket for Redis** is to allow each client to"
+" subscribe and to publish on every possible channel. This normally is not"
+" what you want. Therefore **Websocket for Redis** allows to restrict the "
+"channels for subscription and publishing to your application needs. This "
+"is done by a callback function, which is called right after the "
+"initialization of the Websocket. This function shall be used to restrict "
+"the subscription/publishing channels for the current client."
+msgstr ""
+
+#: ../../usage.rst:259
+msgid "Example:"
+msgstr ""
+
+#: ../../usage.rst:266
+msgid ""
+"This function restricts the allowed channels to ``subscribe-broadcast`` "
+"and ``subscribe-group`` only. All other attempts to subscribe or to "
+"publish on other channels will be silently discarded."
+msgstr ""
+
+#: ../../usage.rst:269
+msgid ""
+"Disallow non authenticated users to subscribe or to publish on the "
+"Websocket:"
+msgstr ""
+
+#: ../../usage.rst:279
+msgid ""
+"When using this callback function, Websockets opened by a non-"
+"authenticated users, will get a **403 - Response Forbidden** error."
+msgstr ""
+
+#: ../../usage.rst:282
+msgid ""
+"To enable this function in your application, use the configuration "
+"directive ``WS4REDIS_ALLOWED_CHANNELS``."
+msgstr ""
+
+#: ../../usage.rst:285
+msgid ""
+"This function must not perform any blocking requests, such as accessing "
+"the database!"
+msgstr ""
+
