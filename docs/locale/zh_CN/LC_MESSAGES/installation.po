@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: django-websocket-redis 0.4.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-22 18:11+0800\n"
-"PO-Revision-Date: 2016-03-23 11:25+0800\n"
+"PO-Revision-Date: 2016-03-23 13:00+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr "安装与配置"
 
 #: ../../installation.rst:8
 msgid "Installation"
-msgstr ""
+msgstr "安装"
 
 #: ../../installation.rst:9
 msgid ""
@@ -33,42 +33,47 @@ msgid ""
 "tool offered by the operating system, such as ``aptitude``, ``yum``, "
 "``port`` or install `Redis from source`_."
 msgstr ""
+"如果还没有安装 **Redis server**的话请使用操作系统自带的安装工具进行安装，例"
+"如 ``aptitude`` , ``yum``,  ``port``, 或者从源码安装 `Redis from source`_"
 
 #: ../../installation.rst:14
 msgid "Start the Redis service on your host"
-msgstr ""
+msgstr "在主机上开启你的Redis服务。"
 
 #: ../../installation.rst:20
 msgid "Check if Redis is up and accepting connections"
-msgstr ""
+msgstr "检查Redis是否已经被启动，能否接受连接。"
 
 #: ../../installation.rst:27
 msgid ""
 "Install **Django Websocket for Redis**. The latest stable release can be "
 "found on PyPI"
 msgstr ""
+"安装 **Django Websocket for Redis** . 最新的稳定版本，可以在PyPI上获得。"
 
 #: ../../installation.rst:33
 msgid "or the newest development version from github"
-msgstr ""
+msgstr "或者是在Github上获取最新的开发版本。"
 
 #: ../../installation.rst:39
 msgid ""
 "**Websocket for Redis** does not define any database models. It can "
 "therefore be installed without any database synchronization."
 msgstr ""
+"**Websocket for Redis** 没有定义任何的数据库模型。所以你可以在安装它的时候"
+"不用同步任何数据库。"
 
 #: ../../installation.rst:44
 msgid "Dependencies"
-msgstr ""
+msgstr "依赖"
 
 #: ../../installation.rst:45
 msgid "Django_ >=1.5"
-msgstr ""
+msgstr "Django_ >= 1.5"
 
 #: ../../installation.rst:46
 msgid "redis >=2.10.3 (a `Python client for Redis`_)"
-msgstr ""
+msgstr "reids >= 2.10.3 (一个 `Python client for Redis`_ )"
 
 #: ../../installation.rst:47
 msgid "uWSGI_ >=1.9.20"
