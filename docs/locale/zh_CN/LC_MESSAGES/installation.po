@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: django-websocket-redis 0.4.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-22 18:11+0800\n"
-"PO-Revision-Date: 2016-03-23 13:00+0800\n"
+"PO-Revision-Date: 2016-03-23 13:06+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,11 +69,11 @@ msgstr "依赖"
 
 #: ../../installation.rst:45
 msgid "Django_ >=1.5"
-msgstr "Django_ >= 1.5"
+msgstr ""
 
 #: ../../installation.rst:46
 msgid "redis >=2.10.3 (a `Python client for Redis`_)"
-msgstr "reids >= 2.10.3 (一个 `Python client for Redis`_ )"
+msgstr ""
 
 #: ../../installation.rst:47
 msgid "uWSGI_ >=1.9.20"
@@ -89,31 +89,33 @@ msgstr ""
 
 #: ../../installation.rst:50
 msgid "optional, but recommended: wsaccel_ >=0.6"
-msgstr ""
+msgstr "可选，但是推荐安装: wsaccel_ >= 0.6"
 
 #: ../../installation.rst:54
 msgid "Configuration"
-msgstr ""
+msgstr "配置"
 
 #: ../../installation.rst:55
 msgid "Add ``\"ws4redis\"`` to your project's ``INSTALLED_APPS`` setting"
-msgstr ""
+msgstr "在你项目的 ``INSTALLED_APPS``配置里面加上 ``\"ws4redis\"`` "
 
 #: ../../installation.rst:65
 msgid ""
 "Specify the URL that distinguishes websocket connections from normal "
 "requests"
-msgstr ""
+msgstr "指定区分websocket与普通请求的URL。"
 
 #: ../../installation.rst:71
 msgid ""
 "If the Redis datastore uses connection settings other than the defaults, "
 "use this dictionary to override these values"
 msgstr ""
+"如果Redis数据存储用的是连接配置，而不是默认配置，那么用下面的这个字典覆盖这"
+"些值。"
 
 #: ../../installation.rst:83
 msgid "Specify only the values, which deviate from the default."
-msgstr ""
+msgstr "只要指定与配置文件不一样的值即可。"
 
 #: ../../installation.rst:85
 msgid ""
