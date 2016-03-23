@@ -4,23 +4,24 @@
 # django-websocket-redis package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: django-websocket-redis 0.4.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-22 18:11+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2016-03-23 11:25+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.2.0\n"
+"Last-Translator: tolerious <tolerious@qq.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 1.8.7\n"
 
 #: ../../installation.rst:5
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "安装与配置"
 
 #: ../../installation.rst:8
 msgid "Installation"
@@ -28,8 +29,8 @@ msgstr ""
 
 #: ../../installation.rst:9
 msgid ""
-"If not already done, install the **Redis server**, using the installation"
-" tool offered by the operating system, such as ``aptitude``, ``yum``, "
+"If not already done, install the **Redis server**, using the installation "
+"tool offered by the operating system, such as ``aptitude``, ``yum``, "
 "``port`` or install `Redis from source`_."
 msgstr ""
 
@@ -114,8 +115,8 @@ msgid ""
 "**Websocket for Redis** can be configured with ``WS4REDIS_EXPIRE``, to "
 "additionally persist messages published on the message queue. This is "
 "advantageous in situations, where clients shall be able to access the "
-"published information after reconnecting the websocket, for instance "
-"after a page is reloaded."
+"published information after reconnecting the websocket, for instance after "
+"a page is reloaded."
 msgstr ""
 
 #: ../../installation.rst:90
@@ -127,8 +128,8 @@ msgstr ""
 #: ../../installation.rst:97
 msgid ""
 "**Websocket for Redis** can prefix each entry in the datastore with a "
-"string. By default, this is empty. If the same Redis connection is used "
-"to store other kinds of data, in order to avoid name clashes you're "
+"string. By default, this is empty. If the same Redis connection is used to "
+"store other kinds of data, in order to avoid name clashes you're "
 "encouraged to prefix these entries with a unique string, say"
 msgstr ""
 
@@ -151,11 +152,11 @@ msgstr ""
 
 #: ../../installation.rst:131
 msgid ""
-"**Websocket for Redis** allows each client to subscribe and to publish on"
-" every possible channel. To restrict and control access, the "
-"``WS4REDIS_ALLOWED_CHANNELS`` options should be set to a callback "
-"function anywhere inside your project. See the example and warnings in "
-":ref:`SafetyConsiderations`."
+"**Websocket for Redis** allows each client to subscribe and to publish on "
+"every possible channel. To restrict and control access, the "
+"``WS4REDIS_ALLOWED_CHANNELS`` options should be set to a callback function "
+"anywhere inside your project. See the example and warnings in :ref:"
+"`SafetyConsiderations`."
 msgstr ""
 
 #: ../../installation.rst:137
@@ -164,31 +165,31 @@ msgstr ""
 
 #: ../../installation.rst:138
 msgid ""
-"With **Websockets for Redis** your Django application has immediate "
-"access to code written for websockets. Change into the ``examples`` "
-"directory and start a sample chat server"
+"With **Websockets for Redis** your Django application has immediate access "
+"to code written for websockets. Change into the ``examples`` directory and "
+"start a sample chat server"
 msgstr ""
 
 #: ../../installation.rst:148
 msgid ""
-"Point a browser onto http://localhost:8000/chat/, you should see a simple"
-" chat server. Enter a message and send it to the server. It should be "
+"Point a browser onto http://localhost:8000/chat/, you should see a simple "
+"chat server. Enter a message and send it to the server. It should be "
 "echoed immediately on the billboard."
 msgstr ""
 
 #: ../../installation.rst:151
 msgid ""
-"Point a second browser onto the same URL. Now each browser should echo "
-"the message entered into input field."
+"Point a second browser onto the same URL. Now each browser should echo the "
+"message entered into input field."
 msgstr ""
 
 #: ../../installation.rst:154
 msgid ""
 "In the examples directory, there are two chat server implementations, "
 "which run out of the box. One simply broadcasts messages to every client "
-"listening on that same websocket URL. The other chat server can be used "
-"to send messages to specific users logged into the system. Use these "
-"demos as a starting point for your application."
+"listening on that same websocket URL. The other chat server can be used to "
+"send messages to specific users logged into the system. Use these demos as "
+"a starting point for your application."
 msgstr ""
 
 #: ../../installation.rst:161
@@ -199,16 +200,16 @@ msgstr ""
 msgid ""
 "Since Redis has to be added as an additional service to the current "
 "infrastructure, at least another service can be safely removed: "
-"*memcached*. This is required by typical Django installations and is used"
-" for caching and session storage."
+"*memcached*. This is required by typical Django installations and is used "
+"for caching and session storage."
 msgstr ""
 
 #: ../../installation.rst:167
 msgid ""
 "It's beyond the scope of this documentation to explain how to set up a "
 "caching and/or session store using Redis, so please check django-redis-"
-"sessions_ and optionally django-redis-cache_ for details, but it should "
-"be as easy as installing"
+"sessions_ and optionally django-redis-cache_ for details, but it should be "
+"as easy as installing"
 msgstr ""
 
 #: ../../installation.rst:175
@@ -225,9 +226,9 @@ msgstr ""
 msgid ""
 "Also keep in mind, that accessing session data is a blocking I/O call. "
 "Hence the connection from the websocket loop to the session store **must "
-"use gevent**, otherwise the websockets may block altogether. Therefore, "
-"if you for some reason you have to remain with your current session "
-"store, make sure its monkey patched with gevent."
+"use gevent**, otherwise the websockets may block altogether. Therefore, if "
+"you for some reason you have to remain with your current session store, "
+"make sure its monkey patched with gevent."
 msgstr ""
 
 #: ../../installation.rst:190
@@ -235,4 +236,3 @@ msgid ""
 "**Never** store session data in the database in combination with "
 "*Websockets for Redis*!"
 msgstr ""
-
